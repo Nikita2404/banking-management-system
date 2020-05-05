@@ -1,0 +1,107 @@
+#include<stdio.h>
+#include<conio.h>
+int list();
+int amount, totalamount=1000,amo,tr ,totaltr=0,totaldeposite=0,totalwithdrawal=0;
+int acc;
+char a[50];
+void deposit();
+void withdrawal();
+void transfer();
+void checkdetail();
+void last();
+void main()
+{
+	
+	printf("enter your name");
+	gets(a);
+	printf("enter your acc number");
+	scanf("%d",&acc);
+	while(1)
+	{
+	
+switch(list())
+{
+	case 1 :
+		deposite();
+		totaldeposite+=amount;
+		break;
+    case 2 : 
+    withdrawal();
+    if(amo<=totalamount)
+    totalwithdrawal+=amo;
+    break;
+	case 3: 
+	transfer();
+		if(tr<=totalamount)
+		totaltr+=tr;
+		break;
+	case 4 :
+		checkdetail();
+		break;
+	case 5 :
+		last();
+		getch();
+		exit(0);
+	default: printf("invalid");	
+
+}
+
+} 
+
+}
+
+ int list()
+ {
+ 	int ch;
+ 	printf("\n 1. DEPOSIT AMOUNT");
+ 	printf("\n 2. WITHDRAWAL AMOUNT");
+ 	printf("\n 3. TRANSFER AMOUNT");
+ 	printf("\n 4. check details");
+ 	printf("\n 5. exit");
+ 	printf("enter the choice");
+ 	scanf("%d",&ch);
+ 	return(ch);
+ }
+ void deposite()
+ {
+ 	printf("enter the amount you want to deposit:\n");
+ 	scanf("%d",&amount);
+ 	totalamount+=amount;
+ }
+ void withdrawal()
+ {
+ 	printf("enter the amount you wish to withdraw:");
+ 	scanf("%d",&amo);
+ 	if(amo<=totalamount)
+ 	totalamount-=amo;
+ 	else
+ 	printf("less amount,withdrawal not possible");
+ }
+ 	void transfer()
+ 	{
+ 		printf("enter the amount you want to transfer: ");
+ 		scanf("%d",&tr);
+ 		if(tr<=totalamount)
+ 		totalamount-=tr;
+ 		else
+ 		printf("less amount,transfer not possible");
+	 }
+	 void checkdetail()
+	 {
+	 	printf("\n total amount= %d",totalamount);
+	 	printf("\n total deposited amount %d",totaldeposite);
+	 	printf("\n total withdrawal amount %d",totalwithdrawal);
+	 	printf("\n total tansfered amount %d",totaltr);
+	 	
+	 }
+ 
+void last()
+	 {
+	 	printf("\n your name=%s",a);
+	 	printf("\naccount number =%d",acc);
+	 	printf("\n total amount= %d",totalamount);
+	 	printf("\n total deposited amount %d",totaldeposite);
+	 	printf("\n total withdrawal amount %d",totalwithdrawal);
+	 	printf("\n total tansfered amount %d",totaltr);
+	 	
+	 }
